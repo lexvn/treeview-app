@@ -5,30 +5,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tree View App</title>
   <link rel="stylesheet" type="text/css" href="treeview.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- <script src="./socket.io/socket.io.js"></script> -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 
-  <h1>Tree View Fun</h1>
+  <h1>Tree View Fun <i class="fa fa-tree" style="font-size:36px"></i> <i class="fa fa-leaf" style="font-size:36px"></i></h1>
 
   <div class="branch-name container">
-    <input type="text" value="" placeholder="Enter a branch name" />
-    <button class="branch-name-btn">Submit</button>
+    <input type="text" id="branchNameInput" value="" placeholder="Enter a branch name" />
+    <button id="branchNameSubmit" class="branch-name-btn">Submit</button>
   </div>
 
   <div class="tree-container">
     <div id="tree">
-      <h2 onclick="newBranch()">Parent Name</h2>
+      <h2 onclick="getBranches()">Root</h2>
 
-      <ul class="branches">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+      <div id="userInputPrompt" style="display: none;">
+          <div class="row heading">About This Branch</div>
+          <div class="row">
+            <input id="editBranchName" class="branch-form" onkeyup="validateInput(this)" required="" readonly="" value="branch1">
+            <!-- Edit Branch Name -->
+            <button id="editBranchNameIcon" class="branch-form name-edit" onclick="editItem(this)"><i class="fa fa-edit"></i></button>
+            <!-- Cancel Edits -->
+            <button id="cancelBranchNameIcon" class="branch-form name-edit" onclick="cancelItem(this)"><i class="fa fa-close"></i></button>
+            <!-- Delete Branch -->
+            <button d="deleteBranchNameIcon" class="branch-form name-edit" onclick="deleteItem(this)"><i class="fa fa-trash-o"></i></button>
+          </div>
+          <!-- other junk -->
+          <div class="row">
+            <input id="childNum" class="branch-form children-input" required="" value="5" data-toggle="tooltip" title="Please enter a number between 1 and 15"  type="number" min="0" max="15" placeholder="# of Leaves">
+          </div>
+          <div class="row input">
+            <div class="range">Range</div>
+            <input type="number" id="rangeMin" class="branch-form" data-toggle="tooltip" title="Enter a minimum value less than the maximum value" placeholder="Min" value="14" required="">
+            <input type="number" id="rangeMax" class="form-control" data-toggle="tooltip" title="Enter an minimum value greater than the maximum value" placeholder="Max" value="100" required="">
+            <button id="branchSubmit" onclick="submitBranchEdit(this)" class="btn btn-block submitBranch">ENTER</button>
+          </div>
+        </div>
+
+
+      <ul id="branches">
       </ul>
+
     </div>
   </div>
 
-  <script type="text/javascript">
+ <!--  <script type="text/javascript">
+    function createBranches(){
+      document.getElementById('userInputPrompt').style = "display", "block"
+    }
+
+    function randomXToY(minVal,maxVal){
+      document.getElementById('rangeMax')
+      document.getElementById('rangeMax')
+
+      var randVal = minVal+(Math.random()*(maxVal-minVal));
+      return Math.round(randVal);
+    }
+
+    var random = randomXToY(101, 999);
+
+
+
+    // function newBranch(){
+    //   Array.from({length: 15}, () => Math.floor(Math.random() * 15));
+    //   console.log(Array)
+    // }
+
+
+
     function newBranch(){
       var arr = []
       while(arr.length < 4){
@@ -36,10 +83,35 @@
           if(arr.indexOf(randomnumber) > -1) continue;
           arr[arr.length] = randomnumber;
       }
-      document.querySelector('ul li').innerHTML = arr;
+
+      // var branchList = arr
+      // // console.log(branchList);
+
+      // branchList = branchList.split(',');
+      // branchList.sort(function() { return 0.5 - Math.random() });
+      // var html = '<ul>';
+
+      //  for(var i=0; i<branchList.length; i++) {
+      //     html += '<li>' + branchList[i] + '</li>';
+      //   }
+
+      // html += '</ul>';
+
+
+      
+      // var branch = "";
+      var branchList = document.getElementById('branches')
+
+      for (var i in arr) {
+        console.log(arr[i]);
+        // branchList.innerHTML = '<li>' + arr[i] + '</li>' + '<li>' + arr[i] + '</li>';
+      } 
+
+      // branchList.innerHTML = arr[i];
+
     }
 
-  </script>
-
+  </script> -->
+  <script src="treeview.js"></script>
 </body>
 </html>
