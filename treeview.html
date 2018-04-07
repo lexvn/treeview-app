@@ -15,13 +15,13 @@
     <h3 id="explain" title="Create a new branch to find out!">What does this thing do?</h3>
 
   <div class="branch-name container">
-    <input type="text" id="branchNameInput" value="" placeholder="Enter a branch name" />
+    <input type="text" id="branchNameInput" value="" placeholder="Enter a branch name" required="" />
     <button id="branchNameSubmit" class="branch-name btn">Enter</button>
   </div>
 
   <div class="tree-container">
     <div id="tree">
-      <h2 onclick="getBranches()">Root</h2>
+      <h2 onclick="getBranches()">branch1</h2>
 
       <div id="userInputPrompt" style="display: none;">
           <div class="row heading">About This Branch</div>
@@ -41,7 +41,7 @@
           <div class="row input">
             <div class="range">Range</div>
             <input type="number" id="rangeMin" class="branch-form" data-toggle="tooltip" title="Enter a minimum value less than the maximum value" placeholder="Min" value="14" required="">
-            <input type="number" id="rangeMax" class="form-control" data-toggle="tooltip" title="Enter an minimum value greater than the maximum value" placeholder="Max" value="100" required="">
+            <input type="number" id="rangeMax" class="branch-form" data-toggle="tooltip" title="Enter an minimum value greater than the maximum value" placeholder="Max" value="100" required="">
             <button id="branchSubmit" onclick="submitBranchEdit(this)" class="btn btn-block submitBranch">ENTER</button>
           </div>
         </div>
