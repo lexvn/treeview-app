@@ -6,16 +6,17 @@
   <title>Tree View App</title>
   <link rel="stylesheet" type="text/css" href="treeview.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <!-- <script src="./socket.io/socket.io.js"></script> -->
   <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 </head>
 <body>
 
-  <h1>Tree View Fun <i class="fa fa-tree" style="font-size:36px"></i> <i class="fa fa-leaf" style="font-size:36px"></i></h1>
+  <h1>Tree View Fun <i class="fa fa-leaf"></i></h1>
+
+    <h3 id="explain" title="Create a new branch to find out!">What does this thing do?</h3>
 
   <div class="branch-name container">
     <input type="text" id="branchNameInput" value="" placeholder="Enter a branch name" />
-    <button id="branchNameSubmit" class="branch-name-btn">Submit</button>
+    <button id="branchNameSubmit" class="branch-name btn">Enter</button>
   </div>
 
   <div class="tree-container">
@@ -52,66 +53,6 @@
     </div>
   </div>
 
- <!--  <script type="text/javascript">
-    function createBranches(){
-      document.getElementById('userInputPrompt').style = "display", "block"
-    }
-
-    function randomXToY(minVal,maxVal){
-      document.getElementById('rangeMax')
-      document.getElementById('rangeMax')
-
-      var randVal = minVal+(Math.random()*(maxVal-minVal));
-      return Math.round(randVal);
-    }
-
-    var random = randomXToY(101, 999);
-
-
-
-    // function newBranch(){
-    //   Array.from({length: 15}, () => Math.floor(Math.random() * 15));
-    //   console.log(Array)
-    // }
-
-
-
-    function newBranch(){
-      var arr = []
-      while(arr.length < 4){
-          var randomnumber = Math.floor(Math.random()*100) + 1;
-          if(arr.indexOf(randomnumber) > -1) continue;
-          arr[arr.length] = randomnumber;
-      }
-
-      // var branchList = arr
-      // // console.log(branchList);
-
-      // branchList = branchList.split(',');
-      // branchList.sort(function() { return 0.5 - Math.random() });
-      // var html = '<ul>';
-
-      //  for(var i=0; i<branchList.length; i++) {
-      //     html += '<li>' + branchList[i] + '</li>';
-      //   }
-
-      // html += '</ul>';
-
-
-      
-      // var branch = "";
-      var branchList = document.getElementById('branches')
-
-      for (var i in arr) {
-        console.log(arr[i]);
-        // branchList.innerHTML = '<li>' + arr[i] + '</li>' + '<li>' + arr[i] + '</li>';
-      } 
-
-      // branchList.innerHTML = arr[i];
-
-    }
-
-  </script> -->
   <script src="treeview.js"></script>
 </body>
 </html>

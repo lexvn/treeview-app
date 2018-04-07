@@ -1,4 +1,4 @@
-// VALIDATE
+// Validate
 function validateInput(text){
 	var $val = $(text).val();
 	if ($val.match(/[^a-zA-Z0-9]/)){
@@ -9,7 +9,10 @@ function validateInput(text){
 }
 
 function getBranches(){
-	document.getElementById('userInputPrompt').style = "display: block";
+	var $getBranches = $("#userInputPrompt"); 
+	$getBranches.css("display", $getBranches.css("display") === 'block' ? 'block' : 'none');
+
+	$("#userInputPrompt").toggle();
 }
 
 function submitBranchEdit(){
